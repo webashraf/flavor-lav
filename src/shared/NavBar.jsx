@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <div>
+    <>
 
-      <div className="navbar bg-base-100 justify-around sticky top-0 z-10 py-8">
+      <div className="navbar bg-base-100 justify-around sticky top-0 z-10 py-8 bg-transparent">
         <div className="navbar-start justify-between lg:justify-normal w-full lg:w-auto">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -36,13 +36,13 @@ const NavBar = () => {
               <li></li>
             </ul>
           </div>
-          <Link to={"/"} className="btn btn-ghost normal-case text-xl">
+          <Link to={"/"} className="btn btn-ghost normal-case text-xl text-white">
             Assignment 10
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex"></div>
         <div className="navbar-end hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 flex items-center gap-9 ">
+          <ul className="menu menu-horizontal px-1 flex items-center gap-9 text-white">
             <li>Home</li>
             <li>About</li>
             <li>Blog</li>
@@ -75,7 +75,7 @@ const NavBar = () => {
               </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,0 +1,15 @@
+.headerBanner {
+  background-image: url("https://images.pexels.com/photos/2696064/pexels-photo-2696064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  height: 70vh;
+  position: relative;
+}
+.headerBanner::after{
+    content: '';
+    height: 100%;
+    width: 100%;
+    background-color: #101010;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+}
