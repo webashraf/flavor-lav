@@ -8,7 +8,7 @@ import { ContextProvider } from "../../contextProvider/AuthProvider";
 
 const SignIn = () => {
   const [errorM, setErrorM] = useState(null);
-  const { signInUserWithEmailPass, signUpWithGoogle, user } = useContext(ContextProvider);
+  const { signInUserWithEmailPass, signUpWithGoogle, user, signUpWithGitHub } = useContext(ContextProvider);
   const location = useLocation();
   // console.log(location);
   const from = location.state.from.pathname || "/";
@@ -16,8 +16,24 @@ const SignIn = () => {
   const navigate = useNavigate();
 
 
-  // Google Sign Up //
-  const googleSignUp = () => {
+  
+  // Sign in with email and password //
+  const handeSignInUser = e =>{
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    
+    
+    signInUserWithEmailPass(email, password)
+    .then(result=> {
+      console.log(result);
+    })
+    .catch(err => console.log(err))
+  }
+  
+  // Google Sign in //
+  const googleSignIn = () => {
     // console.log("google SignUp clicked");
     signUpWithGoogle()
       .then((result) => {
@@ -28,19 +44,17 @@ const SignIn = () => {
       });
   };
 
-  const handeSignInUser = e =>{
-    e.preventDefault();
-    const form = e.target;
-    const email = form.email.value;
-    const password = form.password.value;
-
-
-    signInUserWithEmailPass(email, password)
-    .then(result=> {
+  // Sign In with github //
+  const githubSignIn = () =>{
+    signUpWithGitHub()
+    .then(result => {
       console.log(result);
     })
-    .catch(err => console.log(err))
+    .then(err => {
+      console.log(err);
+    })
   }
+
 
   useEffect(()=>{
     user && navigate(from, {replace: true})
@@ -109,10 +123,10 @@ const SignIn = () => {
               </p>
             </form>
             <div className="flex justify-between mt-3 gap-6 px-6 pb-4">
-              <button onClick={googleSignUp} className="btn bg-amber-600 border-amber-600 flex-grow">
+              <button onClick={googleSignIn} className="btn bg-amber-600 border-amber-600 flex-grow">
                 GOOGLE
               </button>
-              <button className="btn flex-grow">GIT HUB</button>
+              <button onClick={githubSignIn} className="btn flex-grow">GIT HUB</button>
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const [errorM, setErrorM] = useState(null);
-  const { registerEmailAndPass, signUpWithGoogle } = useContext(ContextProvider);
+  const { registerEmailAndPass, signUpWithGoogle, signUpWithGitHub } = useContext(ContextProvider);
 
   // Sign up with google
   const googleSignUp = () => {
@@ -18,6 +18,17 @@ const Register = () => {
         console.log(err);
       });
   };
+
+    // Sign In with github //
+    const githubSignUp = () =>{
+      signUpWithGitHub()
+      .then(result => {
+        console.log(result);
+      })
+      .then(err => {
+        console.log(err);
+      })
+    }
 
   //sign up with email and password //
 const signUpWithEmailAndPass = e =>{
@@ -138,7 +149,7 @@ const updateUserProfile = (user, name, photo) =>{
               >
                 GOOGLE
               </button>
-              <button className="btn flex-grow">GIT HUB</button>
+              <button onClick={githubSignUp} className="btn flex-grow">GIT HUB</button>
             </div>
           </div>
         </div>
