@@ -18,8 +18,9 @@ const router = createBrowserRouter([
                 loader: () => fetch("https://flavor-lav-server.vercel.app/chef")
             },
             {
-                path: "details",
-                element: <PrivateRoute><CheifDetails></CheifDetails></PrivateRoute>
+                path: "details/:cId",
+                element: <PrivateRoute><CheifDetails></CheifDetails></PrivateRoute>,
+                loader: async ({params}) => fetch(`https://flavor-lav-server.vercel.app/chef/${params.cId}`)
             },
             {
                 path: "blog",
