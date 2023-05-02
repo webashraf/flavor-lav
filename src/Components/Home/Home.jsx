@@ -6,7 +6,7 @@ import { useLoaderData } from 'react-router-dom';
 const Home = () => {
 
     const chefData = useLoaderData();
-    console.log(chefData);
+    // console.log(chefData);
 
 
     return (

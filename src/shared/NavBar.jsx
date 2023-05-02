@@ -3,8 +3,16 @@ import { Link, NavLink } from "react-router-dom";
 import { ContextProvider } from "../contextProvider/AuthProvider";
 
 const NavBar = () => {
-  const {user} = useContext(ContextProvider);
-  console.log(user.photoURL);
+  const { user, loading, signOutUser } = useContext(ContextProvider);
+  console.log(user, loading);
+
+  const handleSignOUt = () => {
+    signOutUser()
+    .then(result => {
+  
+    })
+    .catch(err => console.log(err))
+  }
   return (
     <>
       <div className="navbar bg-base-100 justify-between px-10 shadow-2xl z-10 py-4 border-b-4 border-lime-600 rounded-b-2xl">
@@ -30,30 +38,36 @@ const NavBar = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-auto"
             >
-            <NavLink
-              to={"/"}
-              className={ ({ isActive }) =>
-                isActive ? "border-b-2 border-lime-500 rounded-b-lg py-1 px-4" : "px-4"
-              }
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to={"/blog"}
-              className={ ({ isActive }) =>
-                isActive ? "border-b-2 border-lime-500 rounded-b-lg py-1 px-4" : "px-4"
-              }
-            >
-              Blog
-            </NavLink>
-            <NavLink
-              to={"/about"}
-              className={ ({ isActive }) =>
-                isActive ? "border-b-2 border-lime-500 rounded-b-lg py-1 px-4" : "px-4"
-              }
-            >
-              About
-            </NavLink>
+              <NavLink
+                to={"/"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 border-lime-500 rounded-b-lg py-1 px-4"
+                    : "px-4"
+                }
+              >
+                Home
+              </NavLink>
+              <NavLink
+                to={"/blog"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 border-lime-500 rounded-b-lg py-1 px-4"
+                    : "px-4"
+                }
+              >
+                Blog
+              </NavLink>
+              <NavLink
+                to={"/about"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 border-lime-500 rounded-b-lg py-1 px-4"
+                    : "px-4"
+                }
+              >
+                About
+              </NavLink>
               <li className="btn bg-lime-600">Login</li>
             </ul>
           </div>
@@ -69,57 +83,70 @@ const NavBar = () => {
           <ul className="menu menu-horizontal px-1 flex items-center gap-9 ">
             <NavLink
               to={"/"}
-              className={ ({ isActive }) =>
-                isActive ? "border-b-2 border-lime-500 rounded-b-lg py-1 px-4" : "px-4"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-b-2 border-lime-500 rounded-b-lg py-1 px-4"
+                  : "px-4"
               }
             >
               Home
             </NavLink>
             <NavLink
               to={"/blog"}
-              className={ ({ isActive }) =>
-                isActive ? "border-b-2 border-lime-500 rounded-b-lg py-1 px-4" : "px-4"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-b-2 border-lime-500 rounded-b-lg py-1 px-4"
+                  : "px-4"
               }
             >
               Blog
             </NavLink>
             <NavLink
               to={"/about"}
-              className={ ({ isActive }) =>
-                isActive ? "border-b-2 border-lime-500 rounded-b-lg py-1 px-4" : "px-4"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-b-2 border-lime-500 rounded-b-lg py-1 px-4"
+                  : "px-4"
               }
             >
               About
             </NavLink>
-            {
-              user ?           <div className="dropdown dropdown-end">
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                  <img src={user && user?.photoURL} />
-                </div>
-              </label>
-              <ul
-                tabIndex={0}
-                className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+            {user ? (
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    {
+                      !(user === null) && <img src={user.photoURL} />
+                    }
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <a className="justify-between">
+                      Profile
+                      <span className="badge">New</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a>Settings</a>
+                  </li>
+                  <li onClick={handleSignOUt}>
+                    <a>Logout</a>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <Link
+                to={"/signin"}
+                className="btn bg-lime-600 border-lime-600 px-8 rounded-sm"
               >
-                <li>
-                  <a className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
-                  </a>
-                </li>
-                <li>
-                  <a>Settings</a>
-                </li>
-                <li>
-                  <a>Logout</a>
-                </li>
-              </ul>
-            </div> : <Link to={"/signin"} className="btn bg-lime-600 border-lime-600 px-8 rounded-sm">Login</Link>
-            }
-            
+                Login
+              </Link>
+            )}
           </ul>
-
         </div>
       </div>
     </>

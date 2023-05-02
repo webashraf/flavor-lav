@@ -6,19 +6,19 @@ const Register = () => {
   const [errorM, setErrorM] = useState(null);
   const { signUpWithGoogle } = useContext(ContextProvider);
 
-    const googleSignUp = () =>{
-        // console.log("google SignUp clicked");
-        signUpWithGoogle()
-        .then(result => {
-            console.log(result);
-        })
-        .catch(err => {
-            console.log(err);
-        })
-    }
+  // Sign up with google
+  const googleSignUp = () => {
+    // console.log("google SignUp clicked");
+    signUpWithGoogle()
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-
-
+  //sign up with email and password //
 
   return (
     <div className="py-20 mx-20">
@@ -103,7 +103,10 @@ const Register = () => {
               </div>
             </form>
             <div className="flex justify-between mt-3 gap-6 px-6 pb-4">
-              <button onClick={googleSignUp} className="btn bg-amber-600 border-amber-600 flex-grow">
+              <button
+                onClick={googleSignUp}
+                className="btn bg-amber-600 border-amber-600 flex-grow"
+              >
                 GOOGLE
               </button>
               <button className="btn flex-grow">GIT HUB</button>

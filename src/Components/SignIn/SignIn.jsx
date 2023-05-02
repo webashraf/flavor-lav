@@ -1,9 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { ContextProvider } from "../../contextProvider/AuthProvider";
 
 const SignIn = () => {
-    const [errorM, setErrorM] = useState("dfsghjksfhjghfdsg dk jfhgudjhgjirefdhgiuaheuih");
+  const [errorM, setErrorM] = useState(null);
 
+  const { signUpWithGoogle } = useContext(ContextProvider);
+
+  const googleSignUp = () => {
+    // console.log("google SignUp clicked");
+    signUpWithGoogle()
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="py-20 mx-20">
@@ -20,10 +33,9 @@ const SignIn = () => {
 
           <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
             <div className="border border-amber-500 m-4 p-3 rounded-lg">
-                {errorM}
+              {errorM}
             </div>
             <form className="card-body pb-2">
-
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -36,10 +48,8 @@ const SignIn = () => {
                   required
                   className="input input-bordered"
                 />
-
               </div>
               <div className="form-control">
-
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
@@ -59,16 +69,23 @@ const SignIn = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn bg-lime-600 border-lime-600">Login</button>
+                <button className="btn bg-lime-600 border-lime-600">
+                  Login
+                </button>
               </div>
-              <p className="text-center">Are you new to here <Link className="text-lime-500" to={"/register"}>register now!!</Link> </p>
+              <p className="text-center">
+                Are you new to here{" "}
+                <Link className="text-lime-500" to={"/register"}>
+                  register now!!
+                </Link>{" "}
+              </p>
             </form>
             <div className="flex justify-between mt-3 gap-6 px-6 pb-4">
-                  <button className="btn bg-amber-600 border-amber-600 flex-grow">
-                    GOOGLE
-                  </button>
-                  <button className="btn flex-grow">GIT HUB</button>
-                </div>
+              <button onClick={googleSignUp} className="btn bg-amber-600 border-amber-600 flex-grow">
+                GOOGLE
+              </button>
+              <button className="btn flex-grow">GIT HUB</button>
+            </div>
           </div>
         </div>
       </div>

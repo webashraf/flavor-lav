@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Chef = ({chefs}) => {
-  console.log(chefs);
+  // console.log(chefs);
   // const {chef_name} = chefs;
 
   const {id, picture, chef_name, years_of_experience, number_of_recipes, total_likes, short_bio, ingredients, method_of_cooking, ratings, recipes} = chefs;
