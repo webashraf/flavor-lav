@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <>
 
-      <div className="navbar bg-base-100 justify-between px-10 sticky top-0 z-10 py-8 bg-transparent">
+      <div className="navbar bg-base-100 justify-between px-10 shadow-2xl z-10 py-4 border-b-4 border-lime-400 rounded-b-2xl">
         <div className="navbar-start justify-between lg:justify-normal w-full lg:w-auto">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -36,18 +36,18 @@ const NavBar = () => {
               <li></li>
             </ul>
           </div>
-          <Link to={"/"} className="btn btn-ghost normal-case text-xl text-white text-4xl">
-            CHEIF BARI
+          <Link to={"/"} className="btn btn-ghost normal-case text-xl  text-4xl">
+          Flavor Lab
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex"></div>
         <div className="navbar-end hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 flex items-center gap-9 text-white">
+          <ul className="menu menu-horizontal px-1 flex items-center gap-9 ">
             <li>Home</li>
             <li>About</li>
             <li>Blog</li>
             <li>Contact</li>
-            <li className="btn btn-danger">Login</li>
+            <li className="btn bg-lime-600 rounded-sm">Login</li>
           </ul>
               <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

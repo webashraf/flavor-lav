@@ -3,7 +3,7 @@ import "./Banner.css";
 
 const Banner = () => {
   return (
-    <div className=" headerBanner  border bg-cover bg-top bg-fixed -mt-32 flex items-center justify-start z-0 px-12">
+    <div className=" headerBanner  border bg-cover bg-top bg-fixed flex items-center justify-start z-0 px-12">
       <div className=" z-10 uppercase border-b-8 rounded-b-2xl text-white w-1/2">
         <h1 className="text-6xl leading-[3.9rem] font-semibold mb-1">
           Delight your{" "}

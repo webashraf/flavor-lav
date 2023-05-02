@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom"
 import Home from "../Components/Home/Home"
 import Main from "../Layout/Main"
+import CheifDetails from "../Components/ChefDetails/CheifDetails"
 
 
 const router = createBrowserRouter([
@@ -10,7 +11,12 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch("https://flavor-lav-server.vercel.app/chef")
+            },
+            {
+                path: "details",
+                element: <CheifDetails></CheifDetails>
             }
         ]
     }
