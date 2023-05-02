@@ -1,12 +1,22 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ContextProvider } from "../../contextProvider/AuthProvider";
+
+
+
+
 
 const SignIn = () => {
   const [errorM, setErrorM] = useState(null);
+  const { signInUserWithEmailPass, signUpWithGoogle, user } = useContext(ContextProvider);
+  const location = useLocation();
+  // console.log(location);
+  const from = location.state.from.pathname || "/";
+  // console.log(from);
+  const navigate = useNavigate();
 
-  const { signUpWithGoogle } = useContext(ContextProvider);
 
+  // Google Sign Up //
   const googleSignUp = () => {
     // console.log("google SignUp clicked");
     signUpWithGoogle()
@@ -17,6 +27,24 @@ const SignIn = () => {
         console.log(err);
       });
   };
+
+  const handeSignInUser = e =>{
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+
+    signInUserWithEmailPass(email, password)
+    .then(result=> {
+      console.log(result);
+    })
+    .catch(err => console.log(err))
+  }
+
+  useEffect(()=>{
+    user && navigate(from, {replace: true})
+  },[user])
 
   return (
     <div className="py-20 mx-20">
@@ -35,7 +63,7 @@ const SignIn = () => {
             <div className="border border-amber-500 m-4 p-3 rounded-lg">
               {errorM}
             </div>
-            <form className="card-body pb-2">
+            <form onSubmit={handeSignInUser} className="card-body pb-2">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -55,7 +83,7 @@ const SignIn = () => {
                 </label>
 
                 <input
-                  type="text"
+                  type="password"
                   placeholder="password"
                   name="password"
                   required

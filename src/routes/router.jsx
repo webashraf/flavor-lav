@@ -4,6 +4,7 @@ import Main from "../Layout/Main"
 import CheifDetails from "../Components/ChefDetails/CheifDetails"
 import SignIn from "../Components/SignIn/SignIn"
 import Register from "../Components/Register/Register"
+import PrivateRoute from "../privateRoute/PrivateRoute"
 
 
 const router = createBrowserRouter([
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "details",
-                element: <CheifDetails></CheifDetails>
+                element: <PrivateRoute><CheifDetails></CheifDetails></PrivateRoute>
             },
             {
                 path: "blog",
