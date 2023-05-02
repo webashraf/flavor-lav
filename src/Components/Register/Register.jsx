@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { ContextProvider } from "../../contextProvider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const [errorM, setErrorM] = useState(null);
-  const { signUpWithGoogle } = useContext(ContextProvider);
+  const { registerEmailAndPass, signUpWithGoogle } = useContext(ContextProvider);
 
   // Sign up with google
   const googleSignUp = () => {
@@ -19,6 +20,34 @@ const Register = () => {
   };
 
   //sign up with email and password //
+const signUpWithEmailAndPass = e =>{
+  e.preventDefault();
+  const form = e.target;
+  const email = form.email.value;
+  const password = form.password.value;
+  const photoUrl = form.userPhoto.value;
+  const userName = form.name.value;
+
+  console.log(email, password, photoUrl, userName);
+
+  registerEmailAndPass(email, password)
+  .then(result => {
+    console.log(result.user);
+    updateUserProfile(result.user, userName, photoUrl);
+  })
+  .catch(err => console.log(err))
+
+const updateUserProfile = (user, name, photo) =>{
+  updateProfile(user, {
+    displayName: name, 
+    photoURL: photo
+  })
+  .then(result => console.log(result))
+  .catch(err => console.log(err))
+}
+
+
+}
 
   return (
     <div className="py-20 mx-20">
@@ -31,7 +60,7 @@ const Register = () => {
             <div className="border border-amber-500 m-4 p-3 rounded-lg">
               {errorM}
             </div>
-            <form className="card-body pb-2">
+            <form onSubmit={signUpWithEmailAndPass} className="card-body pb-2">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -53,7 +82,7 @@ const Register = () => {
                 <input
                   type="text"
                   placeholder="Photo Url"
-                  name="photo"
+                  name="userPhoto"
                   required
                   className="input input-bordered"
                 />
@@ -77,7 +106,7 @@ const Register = () => {
                 </label>
 
                 <input
-                  type="text"
+                  type="password"
                   placeholder="password"
                   name="password"
                   required
@@ -92,7 +121,7 @@ const Register = () => {
               </div>
               <div className="form-control mt-6">
                 <button className="btn bg-lime-600 border-lime-600 mb-2 ">
-                  Login
+                  Sign Up
                 </button>
                 <p className="text-center">
                   Allready have an account ?{" "}
