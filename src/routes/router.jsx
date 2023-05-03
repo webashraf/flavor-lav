@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom"
+import Details from "../Components/ChefDetails/Details/Details"
 import Home from "../Components/Home/Home"
-import Main from "../Layout/Main"
-import CheifDetails from "../Components/ChefDetails/CheifDetails"
-import SignIn from "../Components/SignIn/SignIn"
 import Register from "../Components/Register/Register"
+import SignIn from "../Components/SignIn/SignIn"
+import Main from "../Layout/Main"
 import PrivateRoute from "../privateRoute/PrivateRoute"
 
 
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "details/:cId",
-                element: <PrivateRoute><CheifDetails></CheifDetails></PrivateRoute>,
+                element: <PrivateRoute><Details></Details></PrivateRoute>,
                 loader: async ({params}) => fetch(`https://flavor-lav-server.vercel.app/chef/${params.cId}`)
             },
             {
@@ -43,3 +43,4 @@ const router = createBrowserRouter([
 ])
 
 export { router }
+

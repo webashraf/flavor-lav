@@ -12,11 +12,6 @@ const Chef = ({ chefs }) => {
     years_of_experience,
     number_of_recipes,
     total_likes,
-    short_bio,
-    ingredients,
-    method_of_cooking,
-    ratings,
-    recipes,
   } = chefs;
   return (
     <>

@@ -4,7 +4,7 @@ import { ContextProvider } from "../contextProvider/AuthProvider";
 
 const NavBar = () => {
   const { user, loading, signOutUser } = useContext(ContextProvider);
-  console.log(user, loading);
+  // console.log(user, loading);
 
   const handleSignOUt = () => {
     signOutUser()
