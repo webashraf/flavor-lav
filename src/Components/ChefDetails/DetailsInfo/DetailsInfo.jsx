@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
-import { ToastContainer, toast } from "react-toastify";
+import Rating from "react-rating";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const DetailsInfo = ({ recipe }) => {
@@ -15,7 +17,7 @@ const DetailsInfo = ({ recipe }) => {
       <div>
         <div className="card bg-base-100 shadow-2xl">
           <div className="card-body">
-            <h2 className="card-title text-3xl underline font-mono">
+            <h2 className="card-title text-3xl underline font-mono text-lime-500">
               {recipe.name}
             </h2>
             <p className="font-mono">
@@ -33,16 +35,31 @@ const DetailsInfo = ({ recipe }) => {
                 </li>
               ))}
             </ul>
-            <div>
-              {favorite ? (
-                <div className="text-4xl text-lime-500" onClick={notify}>
-                  <MdFavorite></MdFavorite>
-                </div>
-              ) : (
-                <div className="text-4xl text-lime-500" onClick={handleFavoriteBtn}>
-                  <MdFavoriteBorder></MdFavoriteBorder>
-                </div>
-              )}
+            <div className="flex gap-6 items-center">
+              <div className="flex gap-3 items-center">
+                <Rating
+                  placeholderRating={recipe.ratings}
+                  emptySymbol={<AiOutlineStar className="text-2xl text-yellow-500"></AiOutlineStar>}
+                  placeholderSymbol={<AiFillStar className="text-2xl text-yellow-500"></AiFillStar>}
+                  readonly
+                />
+                <span className="text-yellow-500">{recipe.ratings}</span>
+              </div>
+
+              <div>
+                {favorite ? (
+                  <div className="text-4xl text-red-500" onClick={notify}>
+                    <MdFavorite></MdFavorite>
+                  </div>
+                ) : (
+                  <div
+                    className="text-4xl text-red-500"
+                    onClick={handleFavoriteBtn}
+                  >
+                    <MdFavoriteBorder></MdFavoriteBorder>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
           <figure>
