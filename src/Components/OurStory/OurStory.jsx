@@ -1,19 +1,21 @@
 import React from "react";
-import { AiTwotoneMail } from 'react-icons/ai';
-import { BsTelephone } from 'react-icons/bs';
-
+import { AiTwotoneMail } from "react-icons/ai";
+import { BsTelephone } from "react-icons/bs";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const OurStory = () => {
   return (
-    <>
-      <div className="hero min-h-auto w-[93%] mx-auto py-20 bg-base-200">
-        <div className="hero-content mx-w-[90rem] flex-col lg:flex-row-reverse">
-          <img
+    <div className="container">
+      <div className="hero min-h-auto mx-auto py-20 bg-base-200">
+        <div className="hero-content w-full md:mx-w-[90rem] flex-col lg:flex-row-reverse">
+          <LazyLoadImage
+            effect="blur"
             src="https://i.ibb.co/Vg39wgy/pexels-photo-14870607.jpg"
-            className="max-w-sm rounded-lg shadow-2xl"
+            className="md:max-w-sm rounded-lg shadow-2xl"
           />
-          <div className="w-2/3 px-10">
-            <div className=" border-b-4 w-1/3 border-lime-400  rounded-b-2xl py-4 my-10 ">
+          <div className="px-2">
+            <div className=" w-[350px] border-b-4  border-lime-400  rounded-b-2xl py-4 my-10 ">
               <h1 className="text-5xl text-left uppercase font-bold border border-b-8 border-lime-500 p-5">
                 Our Story
               </h1>
@@ -36,7 +38,7 @@ const OurStory = () => {
             <div className="flex flex-col w-full lg:flex-row">
               <div className="flex w-full h-24 card bg-base-300 rounded-box flex-row gap-6 items-center pl-5">
                 <div>
-                    <BsTelephone className="text-lime-500 text-6xl"></BsTelephone>
+                  <BsTelephone className="text-lime-500 text-6xl"></BsTelephone>
                 </div>
                 <div>
                   <h4 className="font-bold text-xl">Phone</h4>
@@ -46,7 +48,7 @@ const OurStory = () => {
               <div className="divider lg:divider-horizontal">OR</div>
               <div className="flex w-full h-24 card bg-base-300 rounded-box flex-row gap-6 items-center pl-5">
                 <div>
-                    <AiTwotoneMail className="text-lime-500 text-6xl"></AiTwotoneMail>
+                  <AiTwotoneMail className="text-lime-500 text-6xl"></AiTwotoneMail>
                 </div>
                 <div>
                   <h4 className="font-bold text-xl">Email</h4>
@@ -57,7 +59,7 @@ const OurStory = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
 .book-food{
     background-image: url("https://i.ibb.co/hdPy366/pexels-photo-6466281-1.webp");
     height: 400px;
-    width: 50%;
+    /* width: 50%; */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -10,7 +10,7 @@
 .book-table{
     background-image: url("https://i.ibb.co/B3yQJSV/pexels-photo-12387869-1.jpg");
     height: 400px;
-    width: 50%;
+    /* width: 50%; */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;

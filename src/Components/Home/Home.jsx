@@ -10,25 +10,25 @@ const Home = () => {
   // console.log(chefData);
 
   return (
-    <div>
+    <div className="container mx-auto">
       <Banner></Banner>
-      <div className=" px-20 my-36">
-        <div className="w-1/3 border-b-4 border-lime-400 mx-auto rounded-b-2xl py-4 my-28 ">
+      <div className="md:my-36">
+        <div className="md:w-[350px] border-b-4 border-lime-400 mx-auto rounded-b-2xl py-4 my-28 ">
           <h1 className="text-5xl text-center uppercase font-bold border border-b-8 border-lime-500 p-5">
             Our Chef
           </h1>
         </div>
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {chefData.map((chef) => (
             <Chef key={chef.id} chefs={chef}></Chef>
           ))}
         </div>
       </div>
 
-      <div className=" my-36">
+      <div className=" md:my-36">
         <OurStory></OurStory>
       </div>
-      <div className=" my-36">
+      <div className=" md:my-36">
         <Booking></Booking>
       </div>
     </div>

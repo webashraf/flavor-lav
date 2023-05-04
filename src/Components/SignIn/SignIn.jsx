@@ -7,7 +7,6 @@ import { ContextProvider } from "../../contextProvider/AuthProvider";
 
 
 const SignIn = () => {
-  const [errorM, setErrorM] = useState(null);
   const { signInUserWithEmailPass, signUpWithGoogle, user, signUpWithGitHub } = useContext(ContextProvider);
   const location = useLocation();
   console.log(user);
@@ -74,9 +73,6 @@ const SignIn = () => {
           </div>
 
           <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
-            <div className="border border-amber-500 m-4 p-3 rounded-lg">
-              {errorM}
-            </div>
             <form onSubmit={handeSignInUser} className="card-body pb-2">
               <div className="form-control">
                 <label className="label">

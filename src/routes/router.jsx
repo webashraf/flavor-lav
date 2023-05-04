@@ -6,6 +6,7 @@ import SignIn from "../Components/SignIn/SignIn"
 import Main from "../Layout/Main"
 import PrivateRoute from "../privateRoute/PrivateRoute"
 import ErrorPage from "../Components/ErrorPage/ErrorPage"
+import Blog from "../Components/Blog/Blog"
 
 
 const router = createBrowserRouter([
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "blog",
-                element: <div>Blog</div>
+                element: <Blog></Blog>
             },
             {
                 path: "about",

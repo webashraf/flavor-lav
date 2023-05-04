@@ -1,6 +1,5 @@
 .headerBanner {
   background-image: url("https://i.ibb.co/5kvNczf/pexels-photo-2544829.webp");
-  height: 100vh;
   position: relative;
 }
 .headerBanner::after{

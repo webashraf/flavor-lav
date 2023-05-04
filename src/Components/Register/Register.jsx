@@ -41,12 +41,17 @@ const signUpWithEmailAndPass = e =>{
 
   console.log(email, password, photoUrl, userName);
 
+
   registerEmailAndPass(email, password)
   .then(result => {
+    setErrorM(null)
     console.log(result.user);
     updateUserProfile(result.user, userName, photoUrl);
   })
-  .catch(err => console.log(err))
+  .catch(err => {
+    console.log(err);
+    setErrorM("Password is less then 6 character!!!")
+  })
 
 const updateUserProfile = (user, name, photo) =>{
   updateProfile(user, {
@@ -68,7 +73,7 @@ const updateUserProfile = (user, name, photo) =>{
             Register Now
           </h1>
           <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
-            <div className="border border-amber-500 m-4 p-3 rounded-lg">
+            <div className="text-amber-500 m-4 p-3 rounded-lg">
               {errorM}
             </div>
             <form onSubmit={signUpWithEmailAndPass} className="card-body pb-2">
