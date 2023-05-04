@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { ContextProvider } from "../contextProvider/AuthProvider";
+import { ContextProvider } from "../../contextProvider/AuthProvider";
 import "./Navbar.css"
 
 const NavBar = () => {

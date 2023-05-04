@@ -3,6 +3,7 @@ import Banner from "../Banner/Banner";
 import Chef from "../Chef/Chef";
 import OurStory from "../OurStory/OurStory";
 import { useLoaderData } from "react-router-dom";
+import Booking from "../Booking/Booking";
 
 const Home = () => {
   const chefData = useLoaderData();
@@ -26,6 +27,9 @@ const Home = () => {
 
       <div className=" my-36">
         <OurStory></OurStory>
+      </div>
+      <div className=" my-36">
+        <Booking></Booking>
       </div>
     </div>
   );

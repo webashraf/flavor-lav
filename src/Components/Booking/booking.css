@@ -1,0 +1,32 @@
+.book-food{
+    background-image: url("https://i.ibb.co/hdPy366/pexels-photo-6466281-1.webp");
+    height: 400px;
+    width: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+.book-table{
+    background-image: url("https://i.ibb.co/B3yQJSV/pexels-photo-12387869-1.jpg");
+    height: 400px;
+    width: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    z-index: -1;
+}
+
+
+.book-table::after , .book-food::after{
+    content: '';
+    background-color: red;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: .3;
+    z-index: -1;
+}
