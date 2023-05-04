@@ -18,11 +18,27 @@ const Home = () => {
             Our Chef
           </h1>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
-          {chefData.map((chef) => (
-            <Chef key={chef.id} chefs={chef}></Chef>
-          ))}
-        </div>
+        {chefData ? (
+          <div className="grid md:grid-cols-3 gap-8">
+            {chefData.map((chef) => (
+              <Chef key={chef.id} chefs={chef}></Chef>
+            ))}
+          </div>
+        ) : (
+          <div className="flex justify-center items-center h-screen flex-col-reverse gap-10">
+            <progress className="progress w-56 text-center"></progress>
+            <div
+              className="radial-progress"
+              style={{
+                "--value": "70",
+                "--size": "12rem",
+                "--thickness": "2rem",
+              }}
+            >
+              70%
+            </div>
+          </div>
+        )}
       </div>
 
       <div className=" md:my-36">

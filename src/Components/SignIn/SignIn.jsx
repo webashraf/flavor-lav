@@ -4,9 +4,10 @@ import { ContextProvider } from "../../contextProvider/AuthProvider";
 import { AiFillEye, AiFillEyeInvisible, AiOutlineGithub, AiOutlineGoogle } from "react-icons/ai";
 
 const SignIn = () => {
+  const [view, setView] = useState(false);
+  const [errorM, setErrorM] = useState(null);
   const { signInUserWithEmailPass, signUpWithGoogle, user, signUpWithGitHub } =
     useContext(ContextProvider);
-  const [view, setView] = useState(false);
   const location = useLocation();
   // console.log(user);
   const from = location?.state?.from?.pathname || "/";
@@ -22,10 +23,13 @@ const SignIn = () => {
 
     signInUserWithEmailPass(email, password)
       .then((result) => {
-        console.log(result);
+        // console.log(result);
+        setErrorM(null);
         form.reset();
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setErrorM("Email or Password dosen't match!!!")
+      });
       form.reset();
   };
 
@@ -70,6 +74,7 @@ const SignIn = () => {
           </div>
 
           <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
+          <div className="text-amber-500 m-4 p-3 rounded-lg">{errorM}</div>
             <form onSubmit={handeSignInUser} className="card-body pb-2">
               <div className="form-control">
                 <label className="label">
