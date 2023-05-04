@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { ContextProvider } from "../contextProvider/AuthProvider";
+import "./Navbar.css"
 
 const NavBar = () => {
   const { user, loading, signOutUser } = useContext(ContextProvider);
@@ -8,11 +9,9 @@ const NavBar = () => {
 
   const handleSignOUt = () => {
     signOutUser()
-    .then(result => {
-  
-    })
-    .catch(err => console.log(err))
-  }
+      .then((result) => {})
+      .catch((err) => console.log(err));
+  };
   return (
     <>
       <div className="navbar bg-base-100 justify-between px-10 shadow-2xl z-10 py-4 border-b-4 border-lime-600 rounded-b-2xl">
@@ -38,6 +37,8 @@ const NavBar = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-auto"
             >
+
+
               <NavLink
                 to={"/"}
                 className={({ isActive }) =>
@@ -111,19 +112,22 @@ const NavBar = () => {
             >
               About
             </NavLink>
+
+
             {user ? (
-              <div className="dropdown dropdown-end">
+              <div className="relative dropDownDetails">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
-                    {
-                      !(user === null) && <img src={user.photoURL} />
-                    }
+                    {!(user === null) && <img src={user.photoURL} />}
                   </div>
                 </label>
                 <ul
                   tabIndex={0}
-                  className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+                  className="userProfileMenu mt-3 p-2 shadow menu menu-compact bg-base-100 rounded-box w-52"
                 >
+                  {
+                    !(user === null) && <li className="font-bold"><a href="">{user.displayName}</a></li>
+                  }
                   <li>
                     <a className="justify-between">
                       Profile

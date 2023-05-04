@@ -1,0 +1,16 @@
+.dropDownDetails:hover .userProfileMenu{
+    /* display: none; */
+    display: block;
+    left: -122px;
+    /* background-color: red; */
+    
+}
+
+.userProfileMenu{
+    position: absolute;
+    z-index: 1;
+    left: 1221px;
+    top: 30px;
+    display: none;
+    transition: 1s ;
+}

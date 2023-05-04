@@ -19,8 +19,8 @@ const Details = () => {
         <ToastContainer />
       </div>
       <div className="grid grid-cols-3 gap-6">
-        {chef.recipes.map((recipe, i) => (
-          <DetailsInfo key={i} recipe={recipe}></DetailsInfo>
+        {chef.recipes.map(recipe => (
+          <DetailsInfo key={recipe.id} recipe={recipe}></DetailsInfo>
         ))}
       </div>
     </div>

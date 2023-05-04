@@ -10,8 +10,8 @@ const SignIn = () => {
   const [errorM, setErrorM] = useState(null);
   const { signInUserWithEmailPass, signUpWithGoogle, user, signUpWithGitHub } = useContext(ContextProvider);
   const location = useLocation();
-  // console.log(location);
-  const from = location.state.from.pathname || "/";
+  console.log(user);
+  const from = location?.state?.from?.pathname || "/";
   // console.log(from);
   const navigate = useNavigate();
 
