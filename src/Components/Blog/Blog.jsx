@@ -69,7 +69,7 @@ const Blog = () => {
             What is a custom hook, and why will you create a custom hook?
           </h3>
           <p className="mt-2 font-mono">
-            <span className="font-bold">Ans:</span> A custom hook is a function
+            <span className="font-bold">Ans: </span> A custom hook is a function
             in React that allows you to reuse stateful logic across multiple
             components. Custom hooks are created by extracting stateful logic
             from a component into a reusable function.
