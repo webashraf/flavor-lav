@@ -9,7 +9,7 @@ const ref = React.createRef();
 const Blog = () => {
   return (
     <div>
-      <Banner></Banner>
+      {/* <Banner></Banner> */}
 
       <div>
         <div>
@@ -23,7 +23,7 @@ const Blog = () => {
         </div>
         </div>
       </div>
-      <div className="py-20 w-2/3" ref={ref}>
+      <div className="p-20 w-[800px]" ref={ref}>
         <div className="mb-5">
           <h3 className="text-4xl font-bold font-mono">
             Tell us the differences between uncontrolled and controlled
