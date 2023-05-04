@@ -16,7 +16,7 @@ const OurStory = () => {
           />
           <div className="px-2">
             <div className=" w-[350px] border-b-4  border-lime-400  rounded-b-2xl py-4 my-10 ">
-              <h1 className="text-5xl text-left uppercase font-bold border border-b-8 border-lime-500 p-5">
+              <h1 className="text-5xl uppercase font-bold border border-b-8 border-lime-500 p-5">
                 Our Story
               </h1>
             </div>

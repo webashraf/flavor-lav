@@ -14,7 +14,7 @@ const Blog = () => {
       <div>
         <div>
         <div className="md:w-[350px] border-b-4 border-lime-400 mx-auto rounded-b-2xl py-4 mt-28 flex flex-col">
-          <h1 className="text-5xl text-center uppercase font-mono border border-b-8 border-lime-500 p-5">
+          <h1 className="text-5xl text-center uppercase font-bold border border-b-8 border-lime-500 p-5">
             Blogs
           </h1>
           <Pdf targetRef={ref} filename="code-example.pdf">
@@ -33,10 +33,7 @@ const Blog = () => {
             <span className="font-bold">Ans:</span> Uncontrolled components in a
             system are those that maintain their own internal state, while
             controlled components have their state managed by a controlling
-            entity outside of the component. In other words, uncontrolled
-            components are self-contained and do not rely on external state
-            management, while controlled components do rely on external state
-            management.
+            entity outside of the component. 
           </p>
         </div>
         <div className="mb-5">
@@ -60,8 +57,7 @@ const Blog = () => {
             environment that allows you to run JavaScript code on the
             server-side, while Express.js is a framework built on top of Node.js
             that provides a set of tools and features for building web
-            applications and APIs. In short, Node.js is the runtime, while
-            Express.js is a tool built on top of it for easier web development.
+            applications and APIs.
           </p>
         </div>
         <div className="mb-5">
@@ -70,7 +66,7 @@ const Blog = () => {
           </h3>
           <p className="mt-2 font-mono">
             <span className="font-bold">Ans: </span> A custom hook is a function
-            in React that allows you to reuse stateful logic across multiple
+            in React that allows to reuse stateful logic across multiple
             components. Custom hooks are created by extracting stateful logic
             from a component into a reusable function.
           </p>
