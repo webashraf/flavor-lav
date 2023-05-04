@@ -5,6 +5,7 @@ import Register from "../Components/Register/Register"
 import SignIn from "../Components/SignIn/SignIn"
 import Main from "../Layout/Main"
 import PrivateRoute from "../privateRoute/PrivateRoute"
+import ErrorPage from "../Components/ErrorPage/ErrorPage"
 
 
 const router = createBrowserRouter([
@@ -38,7 +39,8 @@ const router = createBrowserRouter([
                 path: "register",
                 element:<Register></Register>
             }
-        ]
+        ],
+        errorElement: <ErrorPage></ErrorPage>
     }
 ])
 
