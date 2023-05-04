@@ -123,7 +123,7 @@ const NavBar = () => {
                 </label>
                 <ul
                   tabIndex={0}
-                  className="userProfileMenu mt-3 p-2 shadow menu menu-compact bg-base-100 rounded-box w-52"
+                  className="userProfileMenu mt-3 p-2 shadow menu menu-compact bg-base-100 rounded-box w-52 z-50"
                 >
                   {
                     !(user === null) && <li className="font-bold"><a href="">{user.displayName}</a></li>

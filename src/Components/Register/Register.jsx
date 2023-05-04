@@ -1,11 +1,23 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-import { ContextProvider } from "../../contextProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import React, { useContext, useEffect, useState } from "react";
+import { AiOutlineGithub, AiOutlineGoogle } from "react-icons/ai";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { ContextProvider } from "../../contextProvider/AuthProvider";
 
 const Register = () => {
   const [errorM, setErrorM] = useState(null);
-  const { registerEmailAndPass, signUpWithGoogle, signUpWithGitHub } = useContext(ContextProvider);
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
+  // console.log(from);
+  const navigate = useNavigate();
+
+  const {
+    registerEmailAndPass,
+    signUpWithGoogle,
+    signUpWithGitHub,
+    signOutUser,
+    user
+  } = useContext(ContextProvider);
 
   // Sign up with google
   const googleSignUp = () => {
@@ -19,52 +31,61 @@ const Register = () => {
       });
   };
 
-    // Sign In with github //
-    const githubSignUp = () =>{
-      signUpWithGitHub()
-      .then(result => {
+  // Sign In with github //
+  const githubSignUp = () => {
+    signUpWithGitHub()
+      .then((result) => {
         console.log(result);
       })
-      .then(err => {
+      .then((err) => {
         console.log(err);
-      })
-    }
+      });
+  };
 
   //sign up with email and password //
-const signUpWithEmailAndPass = e =>{
-  e.preventDefault();
-  const form = e.target;
-  const email = form.email.value;
-  const password = form.password.value;
-  const photoUrl = form.userPhoto.value;
-  const userName = form.name.value;
+  const signUpWithEmailAndPass = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photoUrl = form.userPhoto.value;
+    const userName = form.name.value;
 
-  console.log(email, password, photoUrl, userName);
+    console.log(email, password, photoUrl, userName);
+
+    registerEmailAndPass(email, password)
+      .then((result) => {
+        setErrorM(null);
+        console.log(result.user);
+        updateUserProfile(result.user, userName, photoUrl);
+      })
+      .catch((err) => {
+        console.log(err);
+        setErrorM("Password is less then 6 character!!!");
+      });
+      
+      const updateUserProfile = (user, name, photo) => {
+        updateProfile(user, {
+          displayName: name,
+          photoURL: photo,
+        })
+        .then((result) => console.log(result))
+        .catch((err) => console.log(err));
+        form.reset();
+      };
+      
+      // signOutUser()
+      // .then(result => console.log(result))
+      // .catch(err => console.log(err))
+      
+    };
 
 
-  registerEmailAndPass(email, password)
-  .then(result => {
-    setErrorM(null)
-    console.log(result.user);
-    updateUserProfile(result.user, userName, photoUrl);
-  })
-  .catch(err => {
-    console.log(err);
-    setErrorM("Password is less then 6 character!!!")
-  })
 
-const updateUserProfile = (user, name, photo) =>{
-  updateProfile(user, {
-    displayName: name, 
-    photoURL: photo
-  })
-  .then(result => console.log(result))
-  .catch(err => console.log(err))
-}
-
-
-}
-
+    useEffect(()=>{
+      user && navigate(from, {replace: true})
+    },[user])
+    
   return (
     <div className="py-20 mx-20">
       <div className="hero min-h-screen bg-base-200 py-14">
@@ -73,9 +94,7 @@ const updateUserProfile = (user, name, photo) =>{
             Register Now
           </h1>
           <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
-            <div className="text-amber-500 m-4 p-3 rounded-lg">
-              {errorM}
-            </div>
+            <div className="text-amber-500 m-4 p-3 rounded-lg">{errorM}</div>
             <form onSubmit={signUpWithEmailAndPass} className="card-body pb-2">
               <div className="form-control">
                 <label className="label">
@@ -152,9 +171,13 @@ const updateUserProfile = (user, name, photo) =>{
                 onClick={googleSignUp}
                 className="btn bg-amber-600 border-amber-600 flex-grow"
               >
+                <AiOutlineGoogle className="text-xl"></AiOutlineGoogle> &nbsp;
                 GOOGLE
               </button>
-              <button onClick={githubSignUp} className="btn flex-grow">GIT HUB</button>
+              <button onClick={githubSignUp} className="btn flex-grow">
+                <AiOutlineGithub className="text-xl"></AiOutlineGithub> &nbsp;
+                GIT HUB
+              </button>
             </div>
           </div>
         </div>

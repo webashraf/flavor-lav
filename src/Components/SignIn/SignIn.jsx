@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ContextProvider } from "../../contextProvider/AuthProvider";
+import { AiOutlineGithub, AiOutlineGoogle } from "react-icons/ai";
 
 
 
@@ -9,7 +10,7 @@ import { ContextProvider } from "../../contextProvider/AuthProvider";
 const SignIn = () => {
   const { signInUserWithEmailPass, signUpWithGoogle, user, signUpWithGitHub } = useContext(ContextProvider);
   const location = useLocation();
-  console.log(user);
+  // console.log(user);
   const from = location?.state?.from?.pathname || "/";
   // console.log(from);
   const navigate = useNavigate();
@@ -27,8 +28,11 @@ const SignIn = () => {
     signInUserWithEmailPass(email, password)
     .then(result=> {
       console.log(result);
+      form.reset();
     })
     .catch(err => console.log(err))
+    form.reset();
+
   }
   
   // Google Sign in //
@@ -120,9 +124,9 @@ const SignIn = () => {
             </form>
             <div className="flex justify-between mt-3 gap-6 px-6 pb-4">
               <button onClick={googleSignIn} className="btn bg-amber-600 border-amber-600 flex-grow">
-                GOOGLE
+                 <AiOutlineGoogle className="text-xl"></AiOutlineGoogle> &nbsp; GOOGLE
               </button>
-              <button onClick={githubSignIn} className="btn flex-grow">GIT HUB</button>
+              <button onClick={githubSignIn} className="btn flex-grow"> <AiOutlineGithub className="text-xl"></AiOutlineGithub> &nbsp; GIT HUB</button>
             </div>
           </div>
         </div>
