@@ -72,7 +72,7 @@ const Blog = () => {
             <span className="font-bold">Ans: </span> A custom hook is a function
             in React that allows you to reuse stateful logic across multiple
             components. Custom hooks are created by extracting stateful logic
-            from a component into a reusable function.
+            from a component into a reusable function. git hub error.
           </p>
         </div>
       </div>
