@@ -1,11 +1,17 @@
 import { updateProfile } from "firebase/auth";
 import React, { useContext, useEffect, useState } from "react";
-import { AiOutlineGithub, AiOutlineGoogle } from "react-icons/ai";
+import {
+  AiFillEye,
+  AiFillEyeInvisible,
+  AiOutlineGithub,
+  AiOutlineGoogle,
+} from "react-icons/ai";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ContextProvider } from "../../contextProvider/AuthProvider";
 
 const Register = () => {
   const [errorM, setErrorM] = useState(null);
+  const [view, setView] = useState(false);
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
   // console.log(from);
@@ -16,7 +22,7 @@ const Register = () => {
     signUpWithGoogle,
     signUpWithGitHub,
     signOutUser,
-    user
+    user,
   } = useContext(ContextProvider);
 
   // Sign up with google
@@ -25,6 +31,7 @@ const Register = () => {
     signUpWithGoogle()
       .then((result) => {
         console.log(result);
+        
       })
       .catch((err) => {
         console.log(err);
@@ -56,36 +63,34 @@ const Register = () => {
     registerEmailAndPass(email, password)
       .then((result) => {
         setErrorM(null);
-        console.log(result.user);
         updateUserProfile(result.user, userName, photoUrl);
+        form.reset();
       })
       .catch((err) => {
-        console.log(err);
+        form.reset();
         setErrorM("Password is less then 6 character!!!");
+
       });
-      
-      const updateUserProfile = (user, name, photo) => {
-        updateProfile(user, {
-          displayName: name,
-          photoURL: photo,
-        })
+
+    const updateUserProfile = (user, name, photo) => {
+      updateProfile(user, {
+        displayName: name,
+        photoURL: photo,
+      })
         .then((result) => console.log(result))
         .catch((err) => console.log(err));
-        form.reset();
-      };
-      
-      // signOutUser()
-      // .then(result => console.log(result))
-      // .catch(err => console.log(err))
-      
+      form.reset();
     };
 
+    // signOutUser()
+    // .then(result => console.log(result))
+    // .catch(err => console.log(err))
+  };
 
+  useEffect(() => {
+    user && navigate(from, { replace: true });
+  }, [user]);
 
-    useEffect(()=>{
-      user && navigate(from, {replace: true})
-    },[user])
-    
   return (
     <div className="py-20 mx-20">
       <div className="hero min-h-screen bg-base-200 py-14">
@@ -141,12 +146,22 @@ const Register = () => {
                 </label>
 
                 <input
-                  type="password"
+                  type={view ? "text" : "password"}
                   placeholder="password"
                   name="password"
                   required
                   className="input input-bordered"
                 />
+
+                {
+                  <div className="mt-3" onClick={() => setView(!view)}>
+                    {view ? (
+                      <AiFillEyeInvisible></AiFillEyeInvisible>
+                    ) : (
+                      <AiFillEye></AiFillEye>
+                    )}
+                  </div>
+                }
 
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">

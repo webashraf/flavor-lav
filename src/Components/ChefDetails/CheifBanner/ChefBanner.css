@@ -7,6 +7,7 @@
     height: 100%;
     background-color: #c80f0f;
     opacity: 0.3;
+    z-index: -1;
 }
 
 .chef_bio::after{
@@ -18,5 +19,5 @@
     height: 100%;
     background-color: #156018;
     opacity: 0.9;
-    z-index: -1;
+    z-index: -2;
 }

@@ -8,7 +8,7 @@ const Details = () => {
   const chef = useLoaderData();
   // console.log("Chef is" ,chef);
   return (
-    <div className="w-full">
+    <div style={{zIndex: "-100"}} className="w-full">
       {/* <h1 className='text-7xl text-black'>Chef Details</h1> */}
       <ChefBanner chef={chef}></ChefBanner>
 
