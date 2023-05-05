@@ -4,7 +4,7 @@ import animationData from "../../../public/chefBannerAnimation.json";
 import "./Banner.css";
 const Banner = () => {
   return (
-    <div className=" headerBanner md:h-[95vh] border bg-cover bg-top bg-fixed flex items-center flex-col md:flex-row gap-6 md:justify-between z-0 md:px-12 px-6 py-20">
+    <div className=" headerBanner md:h-[95vh] border bg-cover bg-top flex items-center flex-col md:flex-row gap-6 md:justify-between z-0 md:px-12 px-6 py-20">
       <div className=" z-10 uppercase border-b-8 rounded-b-2xl text-white md:w-1/2">
         <h1 className="text-3xl md:text-6xl md:leading-[3.9rem] font-semibold mb-1">
           Delight your{" "}

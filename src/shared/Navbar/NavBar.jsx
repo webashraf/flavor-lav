@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { ContextProvider } from "../../contextProvider/AuthProvider";
-import "./Navbar.css"
+import "./Navbar.css";
 
 const NavBar = () => {
   const { user, loading, signOutUser } = useContext(ContextProvider);
@@ -37,8 +37,6 @@ const NavBar = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-auto"
             >
-
-
               <NavLink
                 to={"/"}
                 className={({ isActive }) =>
@@ -80,43 +78,45 @@ const NavBar = () => {
           </Link>
 
           <div className="md:hidden">
-{user ? (
-      <div className="relative dropDownDetails">
-        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-          <div className="w-10 rounded-full">
-            {!(user === null) && <img src={user.photoURL} />}
+            {user ? (
+              <div className="relative dropDownDetails">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    {!(user === null) && <img src={user.photoURL} />}
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="userProfileMenu mt-3 p-2 shadow menu menu-compact bg-base-100 rounded-box w-52 z-50"
+                >
+                  {!(user === null) && (
+                    <li className="font-bold">
+                      <a href="">{user.displayName}</a>
+                    </li>
+                  )}
+                  <li>
+                    <Link to={"/profile"} className="justify-between">
+                      Profile
+                      <span className="badge">New</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <a>Settings</a>
+                  </li>
+                  <li onClick={handleSignOUt}>
+                    <a>Logout</a>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <Link
+                to={"/signin"}
+                className="btn bg-lime-600 border-lime-600 px-8 rounded-sm"
+              >
+                Login
+              </Link>
+            )}
           </div>
-        </label>
-        <ul
-          tabIndex={0}
-          className="userProfileMenu mt-3 p-2 shadow menu menu-compact bg-base-100 rounded-box w-52 z-50"
-        >
-          {
-            !(user === null) && <li className="font-bold"><a href="">{user.displayName}</a></li>
-          }
-          <li>
-            <a className="justify-between">
-              Profile
-              <span className="badge">New</span>
-            </a>
-          </li>
-          <li>
-            <a>Settings</a>
-          </li>
-          <li onClick={handleSignOUt}>
-            <a>Logout</a>
-          </li>
-        </ul>
-      </div>
-    ) : (
-      <Link
-        to={"/signin"}
-        className="btn bg-lime-600 border-lime-600 px-8 rounded-sm"
-      >
-        Login
-      </Link>
-    )}
-</div>
         </div>
         <div className="navbar-center hidden lg:flex"></div>
         <div className="navbar-end hidden lg:flex">
@@ -152,7 +152,6 @@ const NavBar = () => {
               About
             </NavLink>
 
-
             {user ? (
               <div className="relative dropDownDetails">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -164,14 +163,16 @@ const NavBar = () => {
                   tabIndex={0}
                   className="userProfileMenu mt-3 p-2 shadow menu menu-compact bg-base-100 rounded-box w-52 z-50"
                 >
-                  {
-                    !(user === null) && <li className="font-bold"><a href="">{user.displayName}</a></li>
-                  }
+                  {!(user === null) && (
+                    <li className="font-bold">
+                      <a href="">{user.displayName}</a>
+                    </li>
+                  )}
                   <li>
-                    <a className="justify-between">
+                    <Link to={'/profile'} className="justify-between">
                       Profile
                       <span className="badge">New</span>
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <a>Settings</a>

@@ -7,6 +7,7 @@ import Main from "../Layout/Main"
 import PrivateRoute from "../privateRoute/PrivateRoute"
 import ErrorPage from "../Components/ErrorPage/ErrorPage"
 import Blog from "../Components/Blog/Blog"
+import Profile from "../Components/UserProfle/Profile"
 
 
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
             {
                 path: "register",
                 element:<Register></Register>
+            },
+            {
+                path: "profile",
+                element:<Profile></Profile>
             }
         ],
         errorElement: <ErrorPage></ErrorPage>

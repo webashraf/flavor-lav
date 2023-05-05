@@ -18,7 +18,7 @@ const ChefBanner = ({ chef }) => {
     recipes,
   } = chef;
   return (
-    <div style={{backgroundImage : `url(${cover_photo})`}} className="chef_banner w-full relative bg-no-repeat bg-cover bg-center h-[90vh] bg-fixed px-16 flex items-center z-10">
+    <div style={{backgroundImage : `url(${cover_photo})`}} className="chef_banner w-full relative bg-no-repeat bg-cover bg-center h-[90vh] px-16 flex items-center z-10">
       <div className="w-2/3 z-10 text-white chef_bio relative p-10 rounded-lg shadow-2xl">
         <div className="w-52 h-44 rounded-full overflow-hidden mb-3"><img src={picture} alt="" /></div>
         <h1 className="text-2xl uppercase underline mb-3 font-serif">Name: {chef_name}</h1>
