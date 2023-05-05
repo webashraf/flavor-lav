@@ -1,4 +1,5 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Footer = () => {
   return (
@@ -39,10 +40,14 @@ const Footer = () => {
 </footer>
       <footer className="footer px-10 py-4 border-t bg-gray-900 text-white text-base-content border-base-300">
         <div className="items-center grid-flow-col">
+<div>
+<div>
+          <LazyLoadImage effect="blur" className="w-[120px]" src="chefFooterLogo.png" /> 
+          </div>
           <p className="text-white">
-            Flavor Lab <br />
             We are the best with 100 years of success.
           </p>
+</div>
         </div>
         <div className="md:place-self-center md:justify-self-end">
           <div className="grid grid-flow-col gap-4">

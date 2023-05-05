@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link, NavLink } from "react-router-dom";
 import { ContextProvider } from "../../contextProvider/AuthProvider";
 import "./Navbar.css";
@@ -14,7 +15,7 @@ const NavBar = () => {
   };
   return (
     <>
-      <div className="navbar bg-base-100 justify-between px-10 shadow-2xl z-10 py-4 border-b-4 border-lime-600 rounded-b-2xl">
+      <div className="navbar bg-base-100 justify-between px-10 shadow-2xl z-10 py-10 border-b-4 border-lime-600 rounded-b-2xl">
         <div className="navbar-start justify-between lg:justify-normal w-full lg:w-auto">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -70,11 +71,13 @@ const NavBar = () => {
               <li className="btn bg-lime-600">Login</li>
             </ul>
           </div>
-          <Link
-            to={"/"}
-            className="btn btn-ghost normal-case text-xl  text-4xl"
-          >
-            Flavor Lab
+          <Link to={"/"} className="">
+            <LazyLoadImage
+              className="w-[150px]"
+              effect="blur"
+              src="chefLogo.png"
+              alt="Chef Logo"
+            />
           </Link>
 
           <div className="md:hidden">

@@ -1,21 +1,17 @@
 import { updateProfile } from "firebase/auth";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   AiFillEye,
   AiFillEyeInvisible,
   AiOutlineGithub,
   AiOutlineGoogle,
 } from "react-icons/ai";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ContextProvider } from "../../contextProvider/AuthProvider";
 
 const Register = () => {
   const [errorM, setErrorM] = useState(null);
   const [view, setView] = useState(false);
-  const location = useLocation();
-  const from = location?.state?.from?.pathname || "/";
-  // console.log(from);
-  const navigate = useNavigate();
 
   const {
     registerEmailAndPass,
@@ -31,7 +27,6 @@ const Register = () => {
     signUpWithGoogle()
       .then((result) => {
         console.log(result);
-        
       })
       .catch((err) => {
         console.log(err);
@@ -69,7 +64,6 @@ const Register = () => {
       .catch((err) => {
         form.reset();
         setErrorM("Password is less then 6 character!!!");
-
       });
 
     const updateUserProfile = (user, name, photo) => {
@@ -86,10 +80,6 @@ const Register = () => {
     // .then(result => console.log(result))
     // .catch(err => console.log(err))
   };
-
-  useEffect(() => {
-    user && navigate(from, { replace: true });
-  }, [user]);
 
   return (
     <div className="py-20 mx-20">

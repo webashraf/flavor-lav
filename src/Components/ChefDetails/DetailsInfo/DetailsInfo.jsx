@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import Rating from "react-rating";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "react-lazy-load-image-component/src/effects/blur.css";
-import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 const DetailsInfo = ({ recipe }) => {
   const [favorite, setFavorite] = useState(false);
@@ -69,7 +69,7 @@ const DetailsInfo = ({ recipe }) => {
             </div>
           </div>
           <figure>
-            <LazyLoadComponent
+            <LazyLoadImage
               effect="blur"
               src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="Shoes"

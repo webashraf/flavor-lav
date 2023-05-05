@@ -1,5 +1,5 @@
-import React from "react";
 import Lottie from "lottie-react";
+import React from "react";
 import animationData from "../../../public/chefBannerAnimation.json";
 import "./Banner.css";
 const Banner = () => {
