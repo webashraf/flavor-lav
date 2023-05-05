@@ -78,6 +78,45 @@ const NavBar = () => {
           >
             Flavor Lab
           </Link>
+
+          <div className="md:hidden">
+{user ? (
+      <div className="relative dropDownDetails">
+        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+          <div className="w-10 rounded-full">
+            {!(user === null) && <img src={user.photoURL} />}
+          </div>
+        </label>
+        <ul
+          tabIndex={0}
+          className="userProfileMenu mt-3 p-2 shadow menu menu-compact bg-base-100 rounded-box w-52 z-50"
+        >
+          {
+            !(user === null) && <li className="font-bold"><a href="">{user.displayName}</a></li>
+          }
+          <li>
+            <a className="justify-between">
+              Profile
+              <span className="badge">New</span>
+            </a>
+          </li>
+          <li>
+            <a>Settings</a>
+          </li>
+          <li onClick={handleSignOUt}>
+            <a>Logout</a>
+          </li>
+        </ul>
+      </div>
+    ) : (
+      <Link
+        to={"/signin"}
+        className="btn bg-lime-600 border-lime-600 px-8 rounded-sm"
+      >
+        Login
+      </Link>
+    )}
+</div>
         </div>
         <div className="navbar-center hidden lg:flex"></div>
         <div className="navbar-end hidden lg:flex">

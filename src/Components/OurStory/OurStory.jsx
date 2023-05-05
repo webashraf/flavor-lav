@@ -8,7 +8,7 @@ const OurStory = () => {
   return (
     <div className="container">
       <div className="hero min-h-auto mx-auto py-20 bg-base-200">
-        <div className="hero-content w-full md:mx-w-[90rem] flex-col lg:flex-row-reverse">
+        <div className="hero-content w-full md:mx-w-[90rem] flex-col-reverse lg:flex-row-reverse">
           <LazyLoadImage
             effect="blur"
             src="https://i.ibb.co/Vg39wgy/pexels-photo-14870607.jpg"

@@ -1,8 +1,8 @@
+import Lottie from "lottie-react";
 import React from "react";
-import Lottie, { useLottie } from "lottie-react";
-import animationData from "../../../public/errorAnimation.json";
-import { Link } from "react-router-dom";
 import { BsArrowLeft } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import animationData from "../../../public/errorAnimation.json";
 
 const ErrorPage = () => {
   return (
