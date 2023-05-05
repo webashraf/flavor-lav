@@ -18,8 +18,8 @@ const Chef = ({ chefs }) => {
   } = chefs;
   return (
     <>
-      <div className="card card-side bg-base-100 shadow-2xl w-[90%] mx-auto">
-        <figure>
+      <div className="card md:card-side bg-base-100 md:flex-row-reverse rounded-l-none rounded-r-2xl overflow-hidden flex-col shadow-2xl w-[90%] mx-auto">
+        <figure className="w-[120px] h-[120px] ml-6 md:ml-0 mt-6 md:mt-0 lg:w-auto lg:h-auto rounded-full overflow-hidden">
           <LazyLoadImage effect="blur" className="w-52" src={picture} alt="chef_img" />
         </figure>
         <div className="card-body">

@@ -12,8 +12,8 @@ const Home = () => {
   return (
     <div className="container mx-auto">
       <Banner></Banner>
-      <div className="md:my-36">
-        <div className="md:w-[350px] border-b-4 border-lime-400 mx-auto rounded-b-2xl py-4 my-28 ">
+      <div className="md:my-36 px-8">
+        <div className="md:w-[350px] border-b-4 border-lime-400 mx-auto rounded-b-2xl py-4 my-28">
           <h1 className="text-5xl text-center uppercase font-bold border border-b-8 border-lime-500 p-5">
             Our Chef
           </h1>

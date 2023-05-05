@@ -1,6 +1,4 @@
-import Lottie from "lottie-react";
 import React from "react";
-import animationData from "../../../public/chefBannerAnimation.json";
 import "./Banner.css";
 const Banner = () => {
   return (
@@ -13,9 +11,6 @@ const Banner = () => {
           with our culinary <br /> expertise
         </h1>
         <p>"From Farm to Plate, We Craft Exquisite Flavors for You to Savor"</p>
-      </div>
-      <div className="z-10">
-      <Lottie animationData={animationData} loop={true} />;
       </div>
     </div>
   );

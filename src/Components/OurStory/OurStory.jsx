@@ -14,8 +14,8 @@ const OurStory = () => {
             src="https://i.ibb.co/Vg39wgy/pexels-photo-14870607.jpg"
             className="md:max-w-sm rounded-lg shadow-2xl"
           />
-          <div className="px-2">
-            <div className=" w-[350px] border-b-4  border-lime-400  rounded-b-2xl py-4 my-10 ">
+          <div className="px-8 md:px-2">
+            <div className=" md:w-[350px] border-b-4  border-lime-400  rounded-b-2xl py-4 my-10 ">
               <h1 className="text-5xl uppercase font-bold border border-b-8 border-lime-500 p-5">
                 Our Story
               </h1>
