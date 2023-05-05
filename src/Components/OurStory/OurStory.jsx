@@ -46,13 +46,13 @@ const OurStory = () => {
                 </div>
               </div>
               <div className="divider lg:divider-horizontal">OR</div>
-              <div className="flex w-full h-24 card bg-base-300 rounded-box flex-row gap-6 items-center pl-5">
+              <div className="flex w-full h-24 card bg-base-300 rounded-box flex-row gap-4 items-center pl-5">
                 <div>
                   <AiTwotoneMail className="text-lime-500 text-6xl"></AiTwotoneMail>
                 </div>
                 <div>
                   <h4 className="font-bold text-xl">Email</h4>
-                  <p className="text-gray-800">aliashraf***@gmail.com</p>
+                  <p className="text-gray-800">aliaf***@gmail.com</p>
                 </div>
               </div>
             </div>
