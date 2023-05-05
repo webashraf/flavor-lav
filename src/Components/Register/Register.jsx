@@ -61,9 +61,13 @@ const Register = () => {
         updateUserProfile(result.user, userName, photoUrl);
         form.reset();
       })
-      .catch((err) => {
-        form.reset();
-        setErrorM("Password is less then 6 character!!!");
+      .catch((error) => {
+        console.log(error);
+        if (error.message.includes("weak-password")) {
+          setErrorM("Password is less than 6 characters ");
+        } else {
+          setErrorM(error.message);
+        }
       });
 
     const updateUserProfile = (user, name, photo) => {
