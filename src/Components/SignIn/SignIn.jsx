@@ -27,8 +27,9 @@ const SignIn = () => {
         setErrorM(null);
         form.reset();
       })
-      .catch((err) => {
+      .catch((error) => {
         setErrorM("Email or Password dosen't match!!!")
+        console.log(error);
       });
       form.reset();
   };

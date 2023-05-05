@@ -76,7 +76,7 @@ const Register = () => {
         photoURL: photo,
       })
         .then((result) => console.log(result))
-        .catch((err) => console.log(err));
+        .catch((error) => console.log(error));
       form.reset();
     };
 

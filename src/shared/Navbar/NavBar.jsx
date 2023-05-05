@@ -159,7 +159,9 @@ const NavBar = () => {
               <div className="relative dropDownDetails">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
+                    <Link to={"/profile"}>
                     {!(user === null) && <img src={user.photoURL} />}
+                    </Link>
                   </div>
                 </label>
                 <ul
