@@ -91,7 +91,7 @@ const NavBar = () => {
                 >
                   {!(user === null) && (
                     <li className="font-bold">
-                      <a href="">{user.displayName}</a>
+                      <Link to={"/profile"}>{user.displayName}</Link>
                     </li>
                   )}
                   <li>
@@ -165,11 +165,11 @@ const NavBar = () => {
                 >
                   {!(user === null) && (
                     <li className="font-bold">
-                      <a href="">{user.displayName}</a>
+                      <Link to={"/profile"}>{user.displayName}</Link>
                     </li>
                   )}
                   <li>
-                    <Link to={'/profile'} className="justify-between">
+                    <Link to={"/profile"} className="justify-between">
                       Profile
                       <span className="badge">New</span>
                     </Link>
